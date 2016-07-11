@@ -495,8 +495,12 @@ private extension NSDate
 	func getFaceReadyTimeComponents(use24h: Bool) -> (hour1: Int8, hour2: Int8, minute1: Int8, minute2: Int8)
 	{
 		let components = self.getTimeComponents()
+		var hours = use24h ? components.hours : components.hours%12
 		
-		let hours = use24h ? components.hours : components.hours%12
+		if !use24h && hours == 0
+		{
+			hours = 12
+		}
 		
 		return (Int8(hours/10),
 				Int8(hours%10),
