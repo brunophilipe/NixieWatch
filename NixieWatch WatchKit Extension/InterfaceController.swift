@@ -59,12 +59,12 @@ class InterfaceController: WKInterfaceController
 		
 		self.imageView.setImage(faceImage)
 		
-		Wait.sec(UInt64(1))
+		Wait.msec(UInt64(700))
 		{ () in
 			let faceImage: UIImage = self.watchRenderer.renderMinuteFace(components)
 			self.imageView.setImage(faceImage)
 			
-			Wait.sec(UInt64(1))
+			Wait.msec(UInt64(700))
 			{ () in
 				if self.allOffCacheImage == nil
 				{
