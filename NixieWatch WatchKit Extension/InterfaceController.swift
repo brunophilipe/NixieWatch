@@ -14,6 +14,8 @@ class InterfaceController: WKInterfaceController
 	@IBOutlet var imageView: WKInterfaceImage!
 	private var use24h = NSUserDefaults.standardUserDefaults().boolForKey("User24hClock")
 	
+	var showingTime = false
+	var waitingDoubleTap = false
 	let watchRenderer = WatchFaceRenderer()
 	
 	override func awakeWithContext(context: AnyObject?)
@@ -27,6 +29,13 @@ class InterfaceController: WKInterfaceController
 	
 	private func showTimeAnimation()
 	{
+		if showingTime
+		{
+			return
+		}
+		
+		showingTime = true
+		
 		Wait.nsec(UInt64(500))
 		{ () in
 			let faceImage: UIImage = self.watchRenderer.renderHourFace(using24hClock: self.use24h)
@@ -41,6 +50,7 @@ class InterfaceController: WKInterfaceController
 				{ () in
 					let faceImage: UIImage = self.watchRenderer.renderAllOffFace()
 					self.imageView.setImage(faceImage)
+					self.showingTime = false
 				}
 			}
 		}
@@ -61,8 +71,17 @@ class InterfaceController: WKInterfaceController
 	
 	@IBAction func didTapScreen()
 	{
-		toggle24hClock()
-		showTimeAnimation()
+		if waitingDoubleTap
+		{
+			toggle24hClock()
+		}
+		
+		waitingDoubleTap = true
+		Wait.nsec(300)
+		{ () in
+			self.waitingDoubleTap = false
+			self.showTimeAnimation()
+		}
 	}
 	
 	private func toggle24hClock()
