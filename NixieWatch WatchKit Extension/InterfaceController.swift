@@ -74,7 +74,7 @@ class InterfaceController: WKInterfaceController
 		}
 		
 		waitingDoubleTap = true
-		Wait.nsec(300)
+		Wait.msec(300)
 		{ () in
 			self.waitingDoubleTap = false
 			self.showTimeAnimation()
@@ -90,7 +90,7 @@ class InterfaceController: WKInterfaceController
 
 class Wait
 {
-	static func nsec(time: UInt64, block: Void -> Void)
+	static func msec(time: UInt64, block: Void -> Void)
 	{
 		let when = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC * time))
 		dispatch_after(when, dispatch_get_main_queue(), block)
