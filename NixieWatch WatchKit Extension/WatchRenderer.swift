@@ -61,12 +61,13 @@ class WatchFaceRenderer
 	{
 		let currentDevice = WKInterfaceDevice.currentDevice()
 		let screenWidth = currentDevice.screenBounds.width
-		
+		let digitScale: CGFloat = screenWidth > 155 ? 1.2 : 1.0
 		let imageSize = CGSizeMake(screenWidth, 100)
+		
 		UIGraphicsBeginImageContextWithOptions(imageSize, true, 2.0)
 		
-		WatchFaceRenderer.drawDigit(kDigitAllOff, posX: 0, digitScale: 1.2)
-		WatchFaceRenderer.drawDigit(kDigitAllOff, posX: 1, digitScale: 1.2)
+		WatchFaceRenderer.drawDigit(kDigitAllOff, posX: 0, digitScale: digitScale)
+		WatchFaceRenderer.drawDigit(kDigitAllOff, posX: 1, digitScale: digitScale)
 		
 		let faceImage = UIGraphicsGetImageFromCurrentImageContext()
 		
