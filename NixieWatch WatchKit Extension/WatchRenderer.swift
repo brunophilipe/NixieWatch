@@ -13,9 +13,11 @@ import UIKit
 let kDigitDot: Int8 = -1
 let kDigitAllOff: Int8 = 99
 
+typealias TimeComponents = (hour1: Int8, hour2: Int8, minute1: Int8, minute2: Int8)
+
 class WatchFaceRenderer
 {
-	func renderHourFace(using24hClock use24h: Bool) -> UIImage
+	func renderHourFace(components: TimeComponents) -> UIImage
 	{
 		let currentDevice = WKInterfaceDevice.currentDevice()
 		let screenWidth = currentDevice.screenBounds.width
@@ -23,8 +25,6 @@ class WatchFaceRenderer
 		let imageSize = CGSizeMake(screenWidth, 100)
 		
 		UIGraphicsBeginImageContextWithOptions(imageSize, true, 2.0)
-		
-		let components = NSDate().getFaceReadyTimeComponents(use24h)
 		
 		WatchFaceRenderer.drawDigit(components.hour1, posX: 0, digitScale: digitScale)
 		WatchFaceRenderer.drawDigit(components.hour2, posX: 1, digitScale: digitScale)
@@ -36,7 +36,7 @@ class WatchFaceRenderer
 		return faceImage
 	}
 	
-	func renderMinuteFace() -> UIImage
+	func renderMinuteFace(components: TimeComponents) -> UIImage
 	{
 		let currentDevice = WKInterfaceDevice.currentDevice()
 		let screenWidth = currentDevice.screenBounds.width
@@ -44,8 +44,6 @@ class WatchFaceRenderer
 		let imageSize = CGSizeMake(screenWidth, 100)
 		
 		UIGraphicsBeginImageContextWithOptions(imageSize, true, 2.0)
-		
-		let components = NSDate().getFaceReadyTimeComponents(true)
 		
 		WatchFaceRenderer.drawDigit(components.minute1, posX: 0, digitScale: digitScale)
 		WatchFaceRenderer.drawDigit(components.minute2, posX: 1, digitScale: digitScale)
@@ -76,15 +74,13 @@ class WatchFaceRenderer
 		return faceImage
 	}
 	
-	func renderTimeFace(using24hClock use24h: Bool) -> UIImage
+	func renderTimeFace(components: TimeComponents) -> UIImage
 	{
 		let currentDevice = WKInterfaceDevice.currentDevice()
 		let screenWidth = currentDevice.screenBounds.width
 		
 		let imageSize = CGSizeMake(screenWidth, 100)
 		UIGraphicsBeginImageContextWithOptions(imageSize, true, 2.0)
-		
-		let components = NSDate().getFaceReadyTimeComponents(use24h)
 		
 		WatchFaceRenderer.drawDigit(components.hour1, posX: 0)
 		WatchFaceRenderer.drawDigit(components.hour2, posX: 1)
@@ -474,7 +470,7 @@ class WatchFaceRenderer
 	}
 }
 
-private extension NSDate
+internal extension NSDate
 {
 	func getTimeComponents() -> (hours: Int, minutes: Int, seconds: Int)
 	{
@@ -492,7 +488,7 @@ private extension NSDate
 		return (components.day, components.month, components.year)
 	}
 	
-	func getFaceReadyTimeComponents(use24h: Bool) -> (hour1: Int8, hour2: Int8, minute1: Int8, minute2: Int8)
+	func getFaceReadyTimeComponents(use24h: Bool) -> TimeComponents
 	{
 		let components = self.getTimeComponents()
 		var hours = use24h ? components.hours : components.hours%12

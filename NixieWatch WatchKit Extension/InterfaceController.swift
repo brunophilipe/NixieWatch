@@ -14,6 +14,10 @@ class InterfaceController: WKInterfaceController
 	@IBOutlet var imageView: WKInterfaceImage!
 	private var use24h = NSUserDefaults.standardUserDefaults().boolForKey("User24hClock")
 	
+	private var allOffCacheImage: UIImage? = nil
+	private var hourCacheImage: UIImage? = nil
+	private var hourCacheImageStamp: UInt8? = nil
+	
 	var showingTime = false
 	var waitingDoubleTap = false
 	let watchRenderer = WatchFaceRenderer()
@@ -36,18 +40,38 @@ class InterfaceController: WKInterfaceController
 		
 		showingTime = true
 		
-		let faceImage: UIImage = self.watchRenderer.renderHourFace(using24hClock: self.use24h)
+		let components = NSDate().getFaceReadyTimeComponents(use24h)
+		let hourStamp = UInt8(components.hour1 * 10 + components.hour2)
+		
+		var faceImage: UIImage!
+		
+		if hourStamp == hourCacheImageStamp && hourCacheImage != nil
+		{
+			faceImage = hourCacheImage
+		}
+		else
+		{
+			faceImage = self.watchRenderer.renderHourFace(components)
+			
+			hourCacheImageStamp = hourStamp
+			hourCacheImage = faceImage
+		}
+		
 		self.imageView.setImage(faceImage)
 		
 		Wait.sec(UInt64(1))
 		{ () in
-			let faceImage: UIImage = self.watchRenderer.renderMinuteFace()
+			let faceImage: UIImage = self.watchRenderer.renderMinuteFace(components)
 			self.imageView.setImage(faceImage)
 			
 			Wait.sec(UInt64(1))
 			{ () in
-				let faceImage: UIImage = self.watchRenderer.renderAllOffFace()
-				self.imageView.setImage(faceImage)
+				if self.allOffCacheImage == nil
+				{
+					self.allOffCacheImage = self.watchRenderer.renderAllOffFace()
+				}
+				
+				self.imageView.setImage(self.allOffCacheImage)
 				self.showingTime = false
 			}
 		}
