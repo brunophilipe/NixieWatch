@@ -36,22 +36,19 @@ class InterfaceController: WKInterfaceController
 		
 		showingTime = true
 		
-		Wait.nsec(UInt64(500))
+		let faceImage: UIImage = self.watchRenderer.renderHourFace(using24hClock: self.use24h)
+		self.imageView.setImage(faceImage)
+		
+		Wait.sec(UInt64(1))
 		{ () in
-			let faceImage: UIImage = self.watchRenderer.renderHourFace(using24hClock: self.use24h)
+			let faceImage: UIImage = self.watchRenderer.renderMinuteFace()
 			self.imageView.setImage(faceImage)
 			
 			Wait.sec(UInt64(1))
 			{ () in
-				let faceImage: UIImage = self.watchRenderer.renderMinuteFace()
+				let faceImage: UIImage = self.watchRenderer.renderAllOffFace()
 				self.imageView.setImage(faceImage)
-				
-				Wait.sec(UInt64(1))
-				{ () in
-					let faceImage: UIImage = self.watchRenderer.renderAllOffFace()
-					self.imageView.setImage(faceImage)
-					self.showingTime = false
-				}
+				self.showingTime = false
 			}
 		}
 	}
