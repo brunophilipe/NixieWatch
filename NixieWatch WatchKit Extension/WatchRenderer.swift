@@ -131,7 +131,7 @@ class WatchFaceRenderer
 		let colorDisabled = UIColor(red: 0.279, green: 0.279, blue: 0.279, alpha: 0.1)
 		
 		//// Shadow Declarations
-		let shadowEnabled = NSShadow(shadowOffset: CGSizeMake(0.1, -0.1), shadowBlurRadius: 8, shadowColor: colorEnabled)
+		let shadowEnabled = NSShadow(shadowOffset: CGSizeMake(0.1, -0.1), shadowBlurRadius: 16, shadowColor: colorEnabled)
 		let shadowDisabled = NSShadow(shadowOffset: CGSizeMake(0, 0), shadowBlurRadius: 0, shadowColor: UIColor.blackColor())
 		
 		//// Variable Declarations
