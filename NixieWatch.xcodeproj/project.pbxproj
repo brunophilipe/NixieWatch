@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		15449D841C8C95D600B805DE /* WatchRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15449D821C8BC01000B805DE /* WatchRenderer.swift */; };
+		15449D851C8C95D900B805DE /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565BF8B1C8A6E73005125CE /* ComplicationController.swift */; };
+		15449D861C8C95DC00B805DE /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565BF891C8A6E73005125CE /* GlanceController.swift */; };
+		15449D871C8C95DE00B805DE /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565BF871C8A6E73005125CE /* NotificationController.swift */; };
+		15449D881C8C95E100B805DE /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565BF851C8A6E73005125CE /* ExtensionDelegate.swift */; };
+		15449D891C8C95E300B805DE /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565BF831C8A6E73005125CE /* InterfaceController.swift */; };
+		1565BF5F1C8A6E73005125CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565BF5E1C8A6E73005125CE /* AppDelegate.swift */; };
+		1565BF611C8A6E73005125CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1565BF601C8A6E73005125CE /* ViewController.swift */; };
+		1565BF641C8A6E73005125CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1565BF621C8A6E73005125CE /* Main.storyboard */; };
+		1565BF661C8A6E73005125CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1565BF651C8A6E73005125CE /* Assets.xcassets */; };
+		1565BF691C8A6E73005125CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1565BF671C8A6E73005125CE /* LaunchScreen.storyboard */; };
+		1565BF6E1C8A6E73005125CE /* NixieWatch WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 1565BF6D1C8A6E73005125CE /* NixieWatch WatchKit App.app */; };
+		1565BF741C8A6E73005125CE /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1565BF721C8A6E73005125CE /* Interface.storyboard */; };
+		1565BF761C8A6E73005125CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1565BF751C8A6E73005125CE /* Assets.xcassets */; };
+		1565BF7D1C8A6E73005125CE /* NixieWatch WatchKit App.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1565BF7C1C8A6E73005125CE /* NixieWatch WatchKit App.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1565BF8E1C8A6E73005125CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1565BF8D1C8A6E73005125CE /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1565BF6F1C8A6E73005125CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1565BF531C8A6E73005125CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1565BF6C1C8A6E73005125CE;
+			remoteInfo = "NixieWatch WatchKit App";
+		};
+		1565BF7E1C8A6E73005125CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1565BF531C8A6E73005125CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1565BF7B1C8A6E73005125CE;
+			remoteInfo = "NixieWatch WatchKit Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1565BF951C8A6E73005125CE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1565BF7D1C8A6E73005125CE /* NixieWatch WatchKit App.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1565BF991C8A6E73005125CE /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				1565BF6E1C8A6E73005125CE /* NixieWatch WatchKit App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		15449D821C8BC01000B805DE /* WatchRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchRenderer.swift; sourceTree = "<group>"; };
+		1565BF5B1C8A6E73005125CE /* NixieWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NixieWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1565BF5E1C8A6E73005125CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1565BF601C8A6E73005125CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1565BF631C8A6E73005125CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1565BF651C8A6E73005125CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1565BF681C8A6E73005125CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1565BF6A1C8A6E73005125CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1565BF6D1C8A6E73005125CE /* NixieWatch WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NixieWatch WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1565BF731C8A6E73005125CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		1565BF751C8A6E73005125CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1565BF771C8A6E73005125CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1565BF7C1C8A6E73005125CE /* NixieWatch WatchKit App.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "NixieWatch WatchKit App.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1565BF821C8A6E73005125CE /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		1565BF831C8A6E73005125CE /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		1565BF851C8A6E73005125CE /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		1565BF871C8A6E73005125CE /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		1565BF891C8A6E73005125CE /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		1565BF8B1C8A6E73005125CE /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		1565BF8D1C8A6E73005125CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1565BF8F1C8A6E73005125CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1565BF581C8A6E73005125CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1565BF791C8A6E73005125CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1565BF521C8A6E73005125CE = {
+			isa = PBXGroup;
+			children = (
+				1565BF5D1C8A6E73005125CE /* NixieWatch */,
+				1565BF711C8A6E73005125CE /* NixieWatch WatchKit App */,
+				1565BF801C8A6E73005125CE /* NixieWatch WatchKit Extension */,
+				1565BF5C1C8A6E73005125CE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1565BF5C1C8A6E73005125CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1565BF5B1C8A6E73005125CE /* NixieWatch.app */,
+				1565BF6D1C8A6E73005125CE /* NixieWatch WatchKit App.app */,
+				1565BF7C1C8A6E73005125CE /* NixieWatch WatchKit App.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1565BF5D1C8A6E73005125CE /* NixieWatch */ = {
+			isa = PBXGroup;
+			children = (
+				1565BF5E1C8A6E73005125CE /* AppDelegate.swift */,
+				1565BF601C8A6E73005125CE /* ViewController.swift */,
+				1565BF621C8A6E73005125CE /* Main.storyboard */,
+				1565BF651C8A6E73005125CE /* Assets.xcassets */,
+				1565BF671C8A6E73005125CE /* LaunchScreen.storyboard */,
+				1565BF6A1C8A6E73005125CE /* Info.plist */,
+			);
+			path = NixieWatch;
+			sourceTree = "<group>";
+		};
+		1565BF711C8A6E73005125CE /* NixieWatch WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				1565BF721C8A6E73005125CE /* Interface.storyboard */,
+				1565BF751C8A6E73005125CE /* Assets.xcassets */,
+				1565BF771C8A6E73005125CE /* Info.plist */,
+			);
+			path = "NixieWatch WatchKit App";
+			sourceTree = "<group>";
+		};
+		1565BF801C8A6E73005125CE /* NixieWatch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1565BF831C8A6E73005125CE /* InterfaceController.swift */,
+				1565BF851C8A6E73005125CE /* ExtensionDelegate.swift */,
+				1565BF871C8A6E73005125CE /* NotificationController.swift */,
+				1565BF891C8A6E73005125CE /* GlanceController.swift */,
+				1565BF8B1C8A6E73005125CE /* ComplicationController.swift */,
+				1565BF8D1C8A6E73005125CE /* Assets.xcassets */,
+				1565BF8F1C8A6E73005125CE /* Info.plist */,
+				1565BF811C8A6E73005125CE /* Supporting Files */,
+				15449D821C8BC01000B805DE /* WatchRenderer.swift */,
+			);
+			path = "NixieWatch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		1565BF811C8A6E73005125CE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1565BF821C8A6E73005125CE /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1565BF5A1C8A6E73005125CE /* NixieWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1565BF9A1C8A6E73005125CE /* Build configuration list for PBXNativeTarget "NixieWatch" */;
+			buildPhases = (
+				1565BF571C8A6E73005125CE /* Sources */,
+				1565BF581C8A6E73005125CE /* Frameworks */,
+				1565BF591C8A6E73005125CE /* Resources */,
+				1565BF991C8A6E73005125CE /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1565BF701C8A6E73005125CE /* PBXTargetDependency */,
+			);
+			name = NixieWatch;
+			productName = NixieWatch;
+			productReference = 1565BF5B1C8A6E73005125CE /* NixieWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1565BF6C1C8A6E73005125CE /* NixieWatch WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1565BF961C8A6E73005125CE /* Build configuration list for PBXNativeTarget "NixieWatch WatchKit App" */;
+			buildPhases = (
+				1565BF6B1C8A6E73005125CE /* Resources */,
+				1565BF951C8A6E73005125CE /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1565BF7F1C8A6E73005125CE /* PBXTargetDependency */,
+			);
+			name = "NixieWatch WatchKit App";
+			productName = "NixieWatch WatchKit App";
+			productReference = 1565BF6D1C8A6E73005125CE /* NixieWatch WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		1565BF7B1C8A6E73005125CE /* NixieWatch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1565BF921C8A6E73005125CE /* Build configuration list for PBXNativeTarget "NixieWatch WatchKit Extension" */;
+			buildPhases = (
+				1565BF781C8A6E73005125CE /* Sources */,
+				1565BF791C8A6E73005125CE /* Frameworks */,
+				1565BF7A1C8A6E73005125CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "NixieWatch WatchKit Extension";
+			productName = "NixieWatch WatchKit Extension";
+			productReference = 1565BF7C1C8A6E73005125CE /* NixieWatch WatchKit App.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1565BF531C8A6E73005125CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Bruno Philipe";
+				TargetAttributes = {
+					1565BF5A1C8A6E73005125CE = {
+						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = R85D3K8ATT;
+					};
+					1565BF6C1C8A6E73005125CE = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					1565BF7B1C8A6E73005125CE = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 1565BF561C8A6E73005125CE /* Build configuration list for PBXProject "NixieWatch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1565BF521C8A6E73005125CE;
+			productRefGroup = 1565BF5C1C8A6E73005125CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1565BF5A1C8A6E73005125CE /* NixieWatch */,
+				1565BF6C1C8A6E73005125CE /* NixieWatch WatchKit App */,
+				1565BF7B1C8A6E73005125CE /* NixieWatch WatchKit Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1565BF591C8A6E73005125CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1565BF691C8A6E73005125CE /* LaunchScreen.storyboard in Resources */,
+				1565BF661C8A6E73005125CE /* Assets.xcassets in Resources */,
+				1565BF641C8A6E73005125CE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1565BF6B1C8A6E73005125CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1565BF761C8A6E73005125CE /* Assets.xcassets in Resources */,
+				1565BF741C8A6E73005125CE /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1565BF7A1C8A6E73005125CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1565BF8E1C8A6E73005125CE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1565BF571C8A6E73005125CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1565BF611C8A6E73005125CE /* ViewController.swift in Sources */,
+				1565BF5F1C8A6E73005125CE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1565BF781C8A6E73005125CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15449D871C8C95DE00B805DE /* NotificationController.swift in Sources */,
+				15449D881C8C95E100B805DE /* ExtensionDelegate.swift in Sources */,
+				15449D841C8C95D600B805DE /* WatchRenderer.swift in Sources */,
+				15449D891C8C95E300B805DE /* InterfaceController.swift in Sources */,
+				15449D851C8C95D900B805DE /* ComplicationController.swift in Sources */,
+				15449D861C8C95DC00B805DE /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1565BF701C8A6E73005125CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1565BF6C1C8A6E73005125CE /* NixieWatch WatchKit App */;
+			targetProxy = 1565BF6F1C8A6E73005125CE /* PBXContainerItemProxy */;
+		};
+		1565BF7F1C8A6E73005125CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1565BF7B1C8A6E73005125CE /* NixieWatch WatchKit Extension */;
+			targetProxy = 1565BF7E1C8A6E73005125CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1565BF621C8A6E73005125CE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1565BF631C8A6E73005125CE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1565BF671C8A6E73005125CE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1565BF681C8A6E73005125CE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		1565BF721C8A6E73005125CE /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1565BF731C8A6E73005125CE /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1565BF901C8A6E73005125CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1565BF911C8A6E73005125CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1565BF931C8A6E73005125CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "NixieWatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brunophilipe.NixieWatch.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "NixieWatch WatchKit App";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		1565BF941C8A6E73005125CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				INFOPLIST_FILE = "NixieWatch WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brunophilipe.NixieWatch.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "NixieWatch WatchKit App";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		1565BF971C8A6E73005125CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = NixieWatch_WatchKit_Extension;
+				INFOPLIST_FILE = "NixieWatch WatchKit App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brunophilipe.NixieWatch.watchkitapp;
+				PRODUCT_NAME = "NixieWatch WatchKit App";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		1565BF981C8A6E73005125CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = NixieWatch_WatchKit_Extension;
+				INFOPLIST_FILE = "NixieWatch WatchKit App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brunophilipe.NixieWatch.watchkitapp;
+				PRODUCT_NAME = "NixieWatch WatchKit App";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		1565BF9B1C8A6E73005125CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = NixieWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brunophilipe.NixieWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1565BF9C1C8A6E73005125CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = NixieWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brunophilipe.NixieWatch;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1565BF561C8A6E73005125CE /* Build configuration list for PBXProject "NixieWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1565BF901C8A6E73005125CE /* Debug */,
+				1565BF911C8A6E73005125CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1565BF921C8A6E73005125CE /* Build configuration list for PBXNativeTarget "NixieWatch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1565BF931C8A6E73005125CE /* Debug */,
+				1565BF941C8A6E73005125CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1565BF961C8A6E73005125CE /* Build configuration list for PBXNativeTarget "NixieWatch WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1565BF971C8A6E73005125CE /* Debug */,
+				1565BF981C8A6E73005125CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1565BF9A1C8A6E73005125CE /* Build configuration list for PBXNativeTarget "NixieWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1565BF9B1C8A6E73005125CE /* Debug */,
+				1565BF9C1C8A6E73005125CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1565BF531C8A6E73005125CE /* Project object */;
+}
