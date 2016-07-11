@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,11 +16,62 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NixieWatch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jmk-Sd-opl">
+                                <rect key="frame" x="229" y="150" width="141.5" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="27"/>
+                                <color key="textColor" red="0.90980392156862744" green="0.43137254901960786" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Bruno Philipe github.com/brunophilipe/NixieWatch" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8Q-v3-ivw">
+                                <rect key="frame" x="177" y="195" width="246.5" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                <color key="textColor" red="0.8784313725490196" green="0.34509803921568627" blue="0.098039215686274508" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xi-9M-pXo">
+                                <rect key="frame" x="263" y="261" width="74" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Visit Repo"/>
+                                <connections>
+                                    <action selector="didTapVisitRepoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sLD-fB-tfp"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconRenderSmall" translatesAutoresizingMaskIntoConstraints="NO" id="7hS-mN-0jB">
+                                <rect key="frame" x="268" y="51" width="64" height="64"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCN-RU-oIj">
+                                <rect key="frame" x="150" y="314" width="300" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="N5o-J2-nyv"/>
+                                </constraints>
+                                <string key="text">More features might be implemented in the future, like changing settings through the companion-app, and adding more settings, like the Nixie tube color.</string>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                <color key="textColor" red="0.87843137250000003" green="0.34509803919999998" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="CCN-RU-oIj" firstAttribute="top" secondItem="3Xi-9M-pXo" secondAttribute="bottom" constant="23" id="80j-5G-ZPB"/>
+                            <constraint firstItem="CCN-RU-oIj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8Kn-Jf-rN9"/>
+                            <constraint firstItem="7hS-mN-0jB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="31" id="Cx7-Dn-k3M"/>
+                            <constraint firstItem="K8Q-v3-ivw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DR1-Fq-ske"/>
+                            <constraint firstItem="3Xi-9M-pXo" firstAttribute="top" secondItem="K8Q-v3-ivw" secondAttribute="bottom" constant="30" id="F52-1Y-BMQ"/>
+                            <constraint firstItem="Jmk-Sd-opl" firstAttribute="top" secondItem="7hS-mN-0jB" secondAttribute="bottom" constant="35" id="J3j-bN-mfR"/>
+                            <constraint firstItem="7hS-mN-0jB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UFR-bu-WZb"/>
+                            <constraint firstItem="Jmk-Sd-opl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eeV-m9-GNP"/>
+                            <constraint firstItem="K8Q-v3-ivw" firstAttribute="top" secondItem="Jmk-Sd-opl" secondAttribute="bottom" constant="12.5" id="nrt-dF-Qp6"/>
+                            <constraint firstItem="3Xi-9M-pXo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="x2J-b1-J13"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="IconRenderSmall" width="64" height="64"/>
+    </resources>
+    <color key="tintColor" red="0.90980392156862744" green="0.43137254901960786" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
 </document>
