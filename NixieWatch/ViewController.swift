@@ -23,16 +23,16 @@ class ViewController: UIViewController
 		// Dispose of any resources that can be recreated.
 	}
 	
-	override func preferredStatusBarStyle() -> UIStatusBarStyle
+	override var preferredStatusBarStyle : UIStatusBarStyle
 	{
-		return .LightContent
+		return .lightContent
 	}
 
-	@IBAction func didTapVisitRepoButton(sender: AnyObject)
+	@IBAction func didTapVisitRepoButton(_ sender: AnyObject)
 	{
-		if let url = NSURL(string: "https://github.com/brunophilipe/NixieWatch")
+		if let url = URL(string: "https://github.com/brunophilipe/NixieWatch")
 		{
-			UIApplication.sharedApplication().openURL(url)
+			UIApplication.shared.openURL(url)
 		}
 	}
 }
