@@ -89,6 +89,7 @@
 		1565BF8B1C8A6E73005125CE /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		1565BF8D1C8A6E73005125CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1565BF8F1C8A6E73005125CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		159D3B5A1E2057FA00327AC2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +172,7 @@
 		1565BF811C8A6E73005125CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				159D3B5A1E2057FA00327AC2 /* README.md */,
 				1565BF821C8A6E73005125CE /* PushNotificationPayload.apns */,
 			);
 			name = "Supporting Files";
