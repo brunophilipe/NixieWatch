@@ -12,26 +12,26 @@ import Foundation
 class InterfaceController: WKInterfaceController
 {
 	@IBOutlet var imageView: WKInterfaceImage!
-	private var use24h = NSUserDefaults.standardUserDefaults().boolForKey("User24hClock")
+	fileprivate var use24h = UserDefaults.standard.bool(forKey: "User24hClock")
 	
-	private var allOffCacheImage: UIImage? = nil
-	private var hourCacheImage: UIImage? = nil
-	private var hourCacheImageStamp: UInt8? = nil
+	fileprivate var allOffCacheImage: UIImage? = nil
+	fileprivate var hourCacheImage: UIImage? = nil
+	fileprivate var hourCacheImageStamp: UInt8? = nil
 	
 	var showingTime = false
 	var waitingDoubleTap = false
 	let watchRenderer = WatchFaceRenderer()
 	
-	override func awakeWithContext(context: AnyObject?)
+	override func awake(withContext context: Any?)
 	{
-		super.awakeWithContext(context)
+		super.awake(withContext: context)
 		
 		// Configure interface objects here.
 		let faceImage: UIImage = self.watchRenderer.renderAllOffFace()
 		self.imageView.setImage(faceImage)
 	}
 	
-	private func showTimeAnimation()
+	fileprivate func showTimeAnimation()
 	{
 		if showingTime
 		{
@@ -40,7 +40,7 @@ class InterfaceController: WKInterfaceController
 		
 		showingTime = true
 		
-		let components = NSDate().getFaceReadyTimeComponents(use24h)
+		let components = Date().getFaceReadyTimeComponents(use24h)
 		let hourStamp = UInt8(components.hour1 * 10 + components.hour2)
 		
 		var faceImage: UIImage!
@@ -114,24 +114,24 @@ class InterfaceController: WKInterfaceController
 		}
 	}
 	
-	private func toggle24hClock()
+	fileprivate func toggle24hClock()
 	{
 		use24h = !use24h
-		NSUserDefaults.standardUserDefaults().setBool(use24h, forKey: "User24hClock")
+		UserDefaults.standard.set(use24h, forKey: "User24hClock")
 	}
 }
 
 class Wait
 {
-	static func msec(time: UInt64, block: Void -> Void)
+	static func msec(_ time: UInt64, block: @escaping (Void) -> Void)
 	{
-		let when = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_MSEC * time))
-		dispatch_after(when, dispatch_get_main_queue(), block)
+		let when = DispatchTime.now() + Double(Int64(NSEC_PER_MSEC * time)) / Double(NSEC_PER_SEC)
+		DispatchQueue.main.asyncAfter(deadline: when, execute: block)
 	}
 	
-	static func sec(time: UInt64, block: Void -> Void)
+	static func sec(_ time: UInt64, block: @escaping (Void) -> Void)
 	{
-		let when = dispatch_time(DISPATCH_TIME_NOW, Int64(NSEC_PER_SEC * time))
-		dispatch_after(when, dispatch_get_main_queue(), block)
+		let when = DispatchTime.now() + Double(Int64(NSEC_PER_SEC * time)) / Double(NSEC_PER_SEC)
+		DispatchQueue.main.asyncAfter(deadline: when, execute: block)
 	}
 }
