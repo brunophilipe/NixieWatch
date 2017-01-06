@@ -1,5 +1,6 @@
 # NixieWatch
 A watch face app for the Apple Watch that emulates Nixie tubes.
+You can double-tab the face to switch between 12h-24h modes
 
 ### Preview
 
