@@ -21,11 +21,15 @@
 
 import WatchKit
 import Foundation
+import CoreGraphics
 
 class InterfaceController: WKInterfaceController
 {
 	@IBOutlet var imageView: WKInterfaceImage!
 	fileprivate var use24h = UserDefaults.standard.bool(forKey: "User24hClock")
+
+	private let randomFacesQueue = DispatchQueue(label: "NixieWatch.RandomFaces", qos: .background, attributes: [],
+	                                             autoreleaseFrequency: .workItem, target: nil)
 	
 	fileprivate var allOffCacheImage: UIImage? = nil
 	fileprivate var hourCacheImage: UIImage? = nil
@@ -34,6 +38,8 @@ class InterfaceController: WKInterfaceController
 	var showingTime = false
 	var waitingDoubleTap = false
 	let watchRenderer = WatchFaceRenderer()
+
+	private var randomFaces: [UIImage] = []
 	
 	override func awake(withContext context: Any?)
 	{
@@ -42,6 +48,21 @@ class InterfaceController: WKInterfaceController
 		// Configure interface objects here.
 		let faceImage: UIImage = self.watchRenderer.renderAllOffFace()
 		self.imageView.setImage(faceImage)
+
+		for _ in 0...8
+		{
+			randomFacesQueue.async
+				{
+					[weak self] in
+
+					guard let renderer = self?.watchRenderer else
+					{
+						return
+					}
+
+					self?.randomFaces.append(renderer.renderRandomHourMinuteFace())
+				}
+		}
 	}
 	
 	fileprivate func showTimeAnimation()
@@ -69,33 +90,70 @@ class InterfaceController: WKInterfaceController
 			hourCacheImageStamp = hourStamp
 			hourCacheImage = faceImage
 		}
-		
-		self.imageView.setImage(faceImage)
-		
-		Wait.msec(UInt64(600))
-		{ () in
+
+		if randomFaces.count > 3, let animation = UIImage.animatedImage(with: randomFaces, duration: 0.2)
+		{
+			imageView.setImage(animation)
+			imageView.startAnimating()
+
+			Wait.msec(500)
+			{
+				self.imageView.setImage(faceImage)
+
+				if self.allOffCacheImage == nil
+				{
+					self.allOffCacheImage = self.watchRenderer.renderAllOffFace()
+				}
+
+				Wait.msec(600)
+				{
+					self.imageView.setImage(self.allOffCacheImage)
+
+					Wait.msec(50)
+					{
+						self.imageView.setImage(animation)
+						self.imageView.startAnimating()
+
+						Wait.msec(500)
+						{
+							let faceImage: UIImage = self.watchRenderer.renderMinuteFace(components)
+							self.imageView.setImage(faceImage)
+
+							Wait.msec(600)
+							{
+								self.imageView.setImage(self.allOffCacheImage)
+								self.showingTime = false
+							}
+						}
+					}
+				}
+			}
+		}
+		else
+		{
+			self.imageView.setImage(faceImage)
+
 			if self.allOffCacheImage == nil
 			{
 				self.allOffCacheImage = self.watchRenderer.renderAllOffFace()
 			}
-			self.imageView.setImage(self.allOffCacheImage)
-			
-			Wait.msec(50, block:
-			{ () in
-				let faceImage: UIImage = self.watchRenderer.renderMinuteFace(components)
-				self.imageView.setImage(faceImage)
-				
-				Wait.msec(UInt64(600))
-				{ () in
-					if self.allOffCacheImage == nil
+
+			Wait.msec(600)
+			{
+				self.imageView.setImage(self.allOffCacheImage)
+
+				Wait.msec(50)
+				{
+					let faceImage: UIImage = self.watchRenderer.renderMinuteFace(components)
+					self.imageView.setImage(faceImage)
+
+					Wait.msec(600)
 					{
-						self.allOffCacheImage = self.watchRenderer.renderAllOffFace()
+						self.imageView.setImage(self.allOffCacheImage)
+						self.showingTime = false
 					}
-					
-					self.imageView.setImage(self.allOffCacheImage)
-					self.showingTime = false
 				}
-			})
+			}
 		}
 	}
 	
@@ -136,13 +194,13 @@ class InterfaceController: WKInterfaceController
 
 class Wait
 {
-	static func msec(_ time: UInt64, block: @escaping (Void) -> Void)
+	static func msec(_ time: UInt64, block: @escaping () -> Void)
 	{
 		let when = DispatchTime.now() + Double(Int64(NSEC_PER_MSEC * time)) / Double(NSEC_PER_SEC)
 		DispatchQueue.main.asyncAfter(deadline: when, execute: block)
 	}
 	
-	static func sec(_ time: UInt64, block: @escaping (Void) -> Void)
+	static func sec(_ time: UInt64, block: @escaping () -> Void)
 	{
 		let when = DispatchTime.now() + Double(Int64(NSEC_PER_SEC * time)) / Double(NSEC_PER_SEC)
 		DispatchQueue.main.asyncAfter(deadline: when, execute: block)

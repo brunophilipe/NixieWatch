@@ -67,6 +67,25 @@ class WatchFaceRenderer
 		
 		return faceImage!
 	}
+
+	func renderRandomHourMinuteFace() -> UIImage
+	{
+		let currentDevice = WKInterfaceDevice.current()
+		let screenWidth = currentDevice.screenBounds.width
+		let digitScale: CGFloat = screenWidth > 155 ? 1.2 : 1.0
+		let imageSize = CGSize(width: screenWidth, height: 100)
+
+		UIGraphicsBeginImageContextWithOptions(imageSize, true, 2.0)
+
+		WatchFaceRenderer.drawDigit(Int8(arc4random() % 10), posX: 0, digitScale: digitScale)
+		WatchFaceRenderer.drawDigit(Int8(arc4random() % 10), posX: 1, digitScale: digitScale)
+
+		let faceImage = UIGraphicsGetImageFromCurrentImageContext()
+
+		UIGraphicsEndImageContext()
+
+		return faceImage!
+	}
 	
 	func renderAllOffFace() -> UIImage
 	{
@@ -128,6 +147,27 @@ class WatchFaceRenderer
 		
 		UIGraphicsEndImageContext()
 		
+		return faceImage!
+	}
+
+	func renderRandomDateTimeFace() -> UIImage
+	{
+		let currentDevice = WKInterfaceDevice.current()
+		let screenWidth = currentDevice.screenBounds.width
+
+		let imageSize = CGSize(width: screenWidth, height: 100)
+		UIGraphicsBeginImageContextWithOptions(imageSize, true, 2.0)
+
+		WatchFaceRenderer.drawDigit(Int8(arc4random() % 10), posX: 0)
+		WatchFaceRenderer.drawDigit(Int8(arc4random() % 10), posX: 1)
+		WatchFaceRenderer.drawDigit(kDigitDot, posX: 1)
+		WatchFaceRenderer.drawDigit(Int8(arc4random() % 10), posX: 2)
+		WatchFaceRenderer.drawDigit(Int8(arc4random() % 10), posX: 3)
+
+		let faceImage = UIGraphicsGetImageFromCurrentImageContext()
+
+		UIGraphicsEndImageContext()
+
 		return faceImage!
 	}
 	
